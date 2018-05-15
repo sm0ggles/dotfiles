@@ -2,35 +2,73 @@
 ! theme colors
 ! ------------------------------------------------------------------------------
 !------------------------------------------------------------------------------
-! General Colors
 
-*foreground:                               #ebebeb
-*background:                               #151515
+! ------------------------------------------------------------------------------
+!  Colors
+! ------------------------------------------------------------------------------
 
-!black
-*color0:                                   #303030
-*color8:                                   #474747
-!red
-*color1:                                   #BF1E2D
-*color9:                                   #E7212A
-!green
-*color2:                                   #D7D7D7
-*color10:                                  #E6E6E6
-!yellow
-*color3:                                   #666666
-*color11:                                  #808080
-!blue
-*color4:                                   #FFFFFF
-*color12:                                  #ebebeb
-!magenta
-*color5:                                   #C3143B
-*color13:                                  #E82752
-!cyan
-*color6:                                   #D4D4D4
-*color14:                                  #EDEDED
-!white
-*color7:                                   #ebebeb
-*color15:                                  #cccccc
+! special
+#define colorFG #ffffff
+#define colorBG #1b1d1e
+
+! black
+#define color00 #465457
+#define color08 #1b1d1e
+
+! red
+#define color01 #d7005f
+#define color09 #d7005f
+
+! green
+#define color02 #87ff00
+#define color0A #87ff00
+
+! yellow
+#define color03 #ff8700
+#define color0B #ff8700
+
+! blue
+#define color04 #acac85
+#define color0C #acac85
+
+! magenta
+#define color05 #af5fff
+#define color0D #af5fff
+
+! cyan
+#define color06 #5fd7ff
+#define color0E #5fd7ff
+
+! white
+#define color07 #f8f8f8
+#define color0F #ffffff
+
+
+! ------------------------------------------------------------------------------
+!  URxvt
+! ------------------------------------------------------------------------------
+
+*foreground:   colorFG
+*background:   colorBG
+*cursorColor:  colorFG
+
+*color0:       color00
+*color1:       color01
+*color2:       color02
+*color3:       color03
+*color4:       color04
+*color5:       color05
+*color6:       color06
+*color7:       color07
+
+*color8:       color08
+*color9:       color09
+*color10:      color0A
+*color11:      color0B
+*color12:      color0C
+*color13:      color0D
+*color14:      color0E
+*color15:      color0F
 
 ! ------------------------------------------------------------------------------
 ! xterm
@@ -56,14 +94,16 @@ URxvt*scrollBar_right: false
 URxvt*internalBorder: 30
 URxvt*externalBorder: 10
 URxvt*letterSpace: 2
+URxvt.lineSpace: 2
 URxvt.font: xft:creep:size=9
 URxvt.boldFont:
-URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+URxvt.italicFont :xft:scientifica:italic:size=9
+! URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
 URxvt.copyCommand: xclip -i -selection clipboard
 URxvt.pasteCommand: xclip -o -selection clipboard
 URxvt.keysym.m-c: perl:clipboard:copy
 URxvt.keysym.m-v: perl:clipboard:paste
-URxvt.urlLauncher: exo-open
+! URxvt.urlLauncher: exo-open
 URxvt.underlineURLs: true
 URxvt.urlButton: 1
 URxvt.geometry: 90x30
@@ -72,6 +112,13 @@ URxvt.tabbed.tabbar-bg: 16
 URxvt.tabbed.tab-fg: 15
 URxvt.tabbed.tab-bg: 4
 URxvt*buffered: false
+! links
+*.perl-ext-common: default,matcher,selection-to-clipboard
+*.url-launcher: /usr/bin/firefox
+*.matcher.button: 3
+*.matcher.rend.0: fg5
+
+ *cursorBlink: 1
 
 ! ------------------------------------------------------------------------------
 ! UXTerm
@@ -94,10 +141,32 @@ UXTerm*multiScroll: true
 UXTerm*toolBar: false
 
 ! ------------------------------------------------------------------------------
-! Rofi
+! rofi
 ! ------------------------------------------------------------------------------
-rofi.font: Ubuntu Mono 12
 rofi.color-enabled: true
-rofi.color-window: #2b303b, #2b303b, #2b303b
-rofi.color-normal: #2b303b, #c0c5ce, #2b303b, #8fa1b3, #2b303b
-rofi.separator-style: solid
+
+rofi.color-window:    colorBG , colorBG , colorBG , colorBG , colorFG
+rofi.color-normal:    colorBG , colorFG , colorBG , color00 , color07
+rofi.color-active:    colorFG , color07 , colorBG , color07 , colorBG
+rofi.color-urgent:    colorBG , colorFG , colorBG , colorBG , colorFG
+
+rofi.fake-transparency : true
+rofi.font              : scientifica 9
+rofi.columns           : 1
+rofi.separator-style   : none
+rofi.hide-scrollbar    : true
+rofi.location          : 1
+rofi.yoffset           : 35
+rofi.xoffset           : 32
+rofi.padding           : 32
+rofi.fullscreen        : false
+rofi.width             : 350
+rofi.lines             : 6
+
+Xft.dpi       : 96
+Xft.antialias : true
+Xft.rgba      : rgb
+Xft.hinting   : true
+Xft.hintstyle : hintslight
+Xft.autohint  : false
+Xft.lcdfilter : lcddefault
