@@ -35,7 +35,8 @@ bold=$(tput bold)
 
 #PS1="\n\[\e[0;34m\]┌─┄┄[\[\e[1;36m\u\e[0;34m\]]──[\e[1;37m\w\e[0;34m]─┄[\[\e[1;36m\]${HOSTNAME%%.*}\[\e[0;34m\]]\[\e[1;35m\]: \$\[\e[0;34m\]\n\[\e[0;34m\]└──┄┄ \[\e[1;35m\]>> \[\e[00;00m\]"
 
-PS1="\[\e[0m\] \[\e[0;35m\]\u\[\e[1;37m\] @\e[0;31m\] ♥ \[\e[0;33m\]\W\[\e[0m\]\[\e[1;37m\]:\[\e[0m\] "
+ PS1="\[\e[0m\] \[\e[0;35m\]\u\[\e[1;37m\] @\e[0;31m\] ♥ \[\e[0;33m\]\W\[\e[0m\]\[\e[1;37m\]:\[\e[0m\] "
+
 
 # Visualiza los ficheros y directorios 
 function cdls { cd "$1"; ls --color;}
@@ -99,9 +100,9 @@ alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias mirrors='sudo reflector --score 100 --fastest 25 --sort rate --save /etc/pacman.d/mirrorlist --verbose'
 alias cd..='cd ..'
 alias _='sudo'
-alias ufetch='${SCRIPTS}/ufetch.sh'
+# alias ufetch='${SCRIPTS}/ufetch.sh'
 alias blocks='${SCRIPTS}/blocks1'
 alias sysinfo='${SCRIPTS}/syswh.sh'
 alias nerd='${SCRIPTS}/nerdinfo'
-alias vim='nvim'
+# alias vim='nvim'
 # figlet -f Poison sm0g
